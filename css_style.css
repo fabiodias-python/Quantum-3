@@ -1,0 +1,38 @@
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f0f2f;
+  color: #fff;
+}
+header {
+  text-align: center;
+  padding: 2rem;
+  background: #1e1e4f;
+}
+nav a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+}
+main {
+  padding: 2rem;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+a {
+  color: #66d9ef;
+}
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #1e1e4f;
+}
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
