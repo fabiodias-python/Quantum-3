@@ -1,136 +1,295 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quantum | Física Quântica</title>
-  <link rel="stylesheet" href="css_style.css" />
-  <script src="js_particles.min.js"></script>
-  <script src="js_app.js" defer></script>
-
-
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f4;
-    color: #333;
-    transition: background 0.3s, color 0.3s;
-  }
-  header {
-    background: #ffffff;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: box-shadow 0.3s ease-in-out;
-  }
-  nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    background: #ffffff;
-    margin: 0;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #ddd;
-    transition: border-color 0.3s ease-in-out;
-  }
-  nav ul li {
-    margin: 0 1rem;
-    opacity: 0;
-    transform: translateY(-10px);
-    animation: fadeIn 0.6s forwards;
-  }
-  nav ul li:nth-child(1) { animation-delay: 0s; }
-  nav ul li:nth-child(2) { animation-delay: 0.1s; }
-  nav ul li:nth-child(3) { animation-delay: 0.2s; }
-  nav ul li:nth-child(4) { animation-delay: 0.3s; }
-  nav ul li:nth-child(5) { animation-delay: 0.4s; }
-  nav ul li:nth-child(6) { animation-delay: 0.5s; }
-  nav ul li:nth-child(7) { animation-delay: 0.6s; }
-  nav ul li:nth-child(8) { animation-delay: 0.7s; }
-  nav ul li:nth-child(9) { animation-delay: 0.8s; }
-
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    transition: color 0.2s ease-in-out;
-  }
-  nav ul li a:hover {
-    color: #0077cc;
-  }
-  main {
-    max-width: 800px;
-    margin: 2rem auto;
-    background: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    transition: box-shadow 0.3s;
-  }
-  main:hover {
-    box-shadow: 0 0 20px rgba(0,0,0,0.08);
-  }
-  h1, h2 {
-    color: #111;
-    transition: color 0.3s ease-in-out;
-  }
-  footer {
-    text-align: center;
-    padding: 1rem;
-    background: #fff;
-    margin-top: 2rem;
-    font-size: 0.9rem;
-    color: #666;
-    transition: background 0.3s ease-in-out;
-  }
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quantum Explorer - Aprenda física quântica de forma visual e interativa. Conteúdo educacional sobre mecânica quântica, computação quântica e suas aplicações.">
+  <meta name="keywords" content="física quântica, mecânica quântica, computação quântica, qubits, superposição, emaranhamento, educação, ciência">
+  <meta name="author" content="Quantum Explorer">
+  <meta name="robots" content="index, follow">
+  
+  <title>Quantum Explorer | Física Quântica para Estudantes</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fabiodias-python.github.io/Quantum-3/">
+  <meta property="og:title" content="Quantum Explorer | Física Quântica para Estudantes">
+  <meta property="og:description" content="Aprenda física quântica de forma visual e interativa. Conteúdo educacional sobre mecânica quântica, computação quântica e suas aplicações.">
+  <meta property="og:image" content="assets/og-image.jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://fabiodias-python.github.io/Quantum-3/">
+  <meta property="twitter:title" content="Quantum Explorer | Física Quântica para Estudantes">
+  <meta property="twitter:description" content="Aprenda física quântica de forma visual e interativa. Conteúdo educacional sobre mecânica quântica, computação quântica e suas aplicações.">
+  <meta property="twitter:image" content="assets/og-image.jpg">
+  
+  <!-- Preload de recursos críticos -->
+  <link rel="preload" href="js/particles.min.js" as="script">
+  <link rel="preload" href="js/main.js" as="script">
 </head>
 <body>
+  <!-- Barra de progresso de leitura -->
+  <div class="reading-progress"></div>
+  
+  <!-- Background de partículas -->
   <div id="particles-js"></div>
+  
+  <!-- Cabeçalho -->
   <header>
-    <h1>Quantum</h1>
-    <p>Explorando a Física Quântica com profundidade</p>
-    
-<nav>
-  <ul>
-    <li><a href="index.html">Início</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="fundamentos.html">Fundamentos</a></li>
-    <li><a href="computacao.html">Computação Quântica</a></li>
-    <li><a href="interpretações.html">Interpretações</a></li>
-    <li><a href="historia.html">História</a></li>
-    <li><a href="quiz.html">Quiz</a></li>
-    <li><a href="sobre.html">Sobre</a></li>
-    <li><a href="contato.html">Contato</a></li>
-  </ul>
-</nav>
-
+    <div class="container">
+      <div class="header-content">
+        <h1>Quantum Explorer</h1>
+        <p class="site-description">Explorando a Física Quântica com profundidade e clareza para estudantes</p>
+      </div>
+      
+      <div class="nav-container">
+        <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav">
+          <i class="fas fa-bars"></i>
+          <span class="sr-only">Menu</span>
+        </button>
+        
+        <nav id="main-nav">
+          <ul>
+            <li><a href="index.html" class="active">Início</a></li>
+            <li><a href="pages/fundamentos.html">Fundamentos</a></li>
+            <li><a href="pages/computacao.html">Computação Quântica</a></li>
+            <li><a href="pages/interpretacoes.html">Interpretações</a></li>
+            <li><a href="pages/historia.html">História</a></li>
+            <li><a href="pages/recursos.html">Recursos</a></li>
+            <li><a href="pages/quiz.html">Quiz</a></li>
+            <li><a href="pages/blog.html">Blog</a></li>
+            <li><a href="pages/sobre.html">Sobre</a></li>
+            <li><a href="pages/contato.html">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
   </header>
-  <main>
-    <section>
-      <h2>Bem-vindo ao Quantum</h2>
-      <p>Aprenda sobre física quântica de forma visual e interativa.</p>
-    </section>
-    <section>
-      <h2>Últimos Artigos</h2>
+  
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs">
+    <div class="container">
       <ul>
-        <li><a href="o-que-e-superposicao.html">O que é Superposição Quântica?</a></li>
-        <li><a href="qubits-e-seus-segredos.html">Qubits e Seus Segredos</a></li>
+        <li><a href="index.html">Início</a></li>
+        <li class="current">Página Inicial</li>
       </ul>
-    </section>
+    </div>
+  </div>
+  
+  <!-- Conteúdo Principal -->
+  <main>
+    <div class="container">
+      <!-- Seção de Boas-vindas -->
+      <section class="content-section fade-in">
+        <h2>Bem-vindo ao Quantum Explorer</h2>
+        <p>Descubra o fascinante mundo da física quântica através de explicações claras, visualizações interativas e conteúdo educacional projetado especificamente para estudantes. Nosso objetivo é tornar os conceitos quânticos acessíveis e compreensíveis, sem sacrificar o rigor científico.</p>
+        
+        <p>A física quântica é a base de tecnologias revolucionárias como computadores quânticos, criptografia quântica e novos materiais. Compreender seus princípios é essencial para qualquer pessoa interessada no futuro da ciência e tecnologia.</p>
+        
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Fundamentos Quânticos</h3>
+              <p class="card-description">Explore os princípios fundamentais da mecânica quântica, desde a dualidade onda-partícula até o princípio da incerteza de Heisenberg.</p>
+              <a href="pages/fundamentos.html" class="card-link">Explorar <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Computação Quântica</h3>
+              <p class="card-description">Descubra como os computadores quânticos funcionam e por que eles prometem revolucionar a computação como conhecemos.</p>
+              <a href="pages/computacao.html" class="card-link">Explorar <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Quiz Quântico</h3>
+              <p class="card-description">Teste seus conhecimentos sobre física quântica com nosso quiz interativo e receba explicações detalhadas.</p>
+              <a href="pages/quiz.html" class="card-link">Testar <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Seção de Simulação Interativa -->
+      <section class="content-section fade-in">
+        <h2>Visualize Conceitos Quânticos</h2>
+        <p>A física quântica pode ser contraintuitiva, mas visualizações interativas podem ajudar a compreender melhor seus conceitos fundamentais. Experimente nossa simulação de superposição quântica abaixo:</p>
+        
+        <div class="simulation-container" data-simulation="superposition">
+          <h3>Simulação de Superposição Quântica</h3>
+          <p>Ajuste o controle deslizante para ver como um sistema quântico pode existir em uma superposição de estados. A linha verde representa o estado quântico resultante da combinação dos estados base (azul e roxo).</p>
+          
+          <div class="simulation-controls">
+            <div class="simulation-control">
+              <label class="simulation-label" for="amplitude-slider">Amplitude de Superposição:</label>
+              <input type="range" id="amplitude-slider" class="simulation-slider" data-param="amplitude" min="0" max="1" step="0.01" value="0.5">
+            </div>
+          </div>
+          
+          <canvas class="simulation-canvas"></canvas>
+          
+          <p class="simulation-explanation">
+            Na mecânica quântica, um sistema pode existir em múltiplos estados simultaneamente, uma propriedade conhecida como superposição. Esta é a base para o poder dos computadores quânticos, permitindo que eles explorem múltiplas soluções ao mesmo tempo.
+          </p>
+        </div>
+      </section>
+      
+      <!-- Seção de Últimos Artigos -->
+      <section class="content-section fade-in">
+        <h2>Últimos Artigos</h2>
+        <p>Explore nossos artigos mais recentes sobre física quântica e suas aplicações:</p>
+        
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-content">
+              <h3 class="card-title">O que é Superposição Quântica?</h3>
+              <div class="article-meta">
+                <span><i class="far fa-calendar"></i> 15 Maio, 2025</span>
+                <span><i class="far fa-clock"></i> 8 min de leitura</span>
+              </div>
+              <p class="card-description">Entenda o conceito de superposição quântica, um dos fenômenos mais fascinantes e contraintuitivos da mecânica quântica, e como ele difere do comportamento clássico.</p>
+              <div class="article-tags">
+                <a href="#" class="tag">Superposição</a>
+                <a href="#" class="tag">Fundamentos</a>
+              </div>
+              <a href="pages/blog/superposicao-quantica.html" class="card-link">Ler artigo <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </article>
+          
+          <article class="card">
+            <div class="card-content">
+              <h3 class="card-title">Qubits e Seus Segredos</h3>
+              <div class="article-meta">
+                <span><i class="far fa-calendar"></i> 10 Maio, 2025</span>
+                <span><i class="far fa-clock"></i> 10 min de leitura</span>
+              </div>
+              <p class="card-description">Descubra como os qubits, os bits quânticos, funcionam e por que eles são fundamentais para a computação quântica. Entenda as diferenças entre qubits e bits clássicos.</p>
+              <div class="article-tags">
+                <a href="#" class="tag">Qubits</a>
+                <a href="#" class="tag">Computação Quântica</a>
+              </div>
+              <a href="pages/blog/qubits-segredos.html" class="card-link">Ler artigo <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </article>
+          
+          <article class="card">
+            <div class="card-content">
+              <h3 class="card-title">Emaranhamento Quântico Explicado</h3>
+              <div class="article-meta">
+                <span><i class="far fa-calendar"></i> 5 Maio, 2025</span>
+                <span><i class="far fa-clock"></i> 12 min de leitura</span>
+              </div>
+              <p class="card-description">Compreenda o fenômeno do emaranhamento quântico, descrito por Einstein como "ação fantasmagórica à distância", e suas implicações para a física e tecnologia.</p>
+              <div class="article-tags">
+                <a href="#" class="tag">Emaranhamento</a>
+                <a href="#" class="tag">Einstein</a>
+              </div>
+              <a href="pages/blog/emaranhamento-quantico.html" class="card-link">Ler artigo <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+        
+        <div class="text-center" style="margin-top: 2rem;">
+          <a href="pages/blog.html" class="card-link">Ver todos os artigos <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </section>
+      
+      <!-- Seção de Glossário -->
+      <section class="content-section fade-in">
+        <h2>Glossário Quântico</h2>
+        <p>Familiarize-se com os termos essenciais da física quântica:</p>
+        
+        <div class="glossary-term">
+          <h3 class="term-title">Superposição</h3>
+          <p>Princípio da mecânica quântica que permite que partículas existam em múltiplos estados simultaneamente, até que sejam medidas ou observadas.</p>
+        </div>
+        
+        <div class="glossary-term">
+          <h3 class="term-title">Emaranhamento</h3>
+          <p>Fenômeno quântico onde duas ou mais partículas se tornam correlacionadas de tal forma que o estado quântico de cada partícula não pode ser descrito independentemente das outras, mesmo quando separadas por grandes distâncias.</p>
+        </div>
+        
+        <div class="glossary-term">
+          <h3 class="term-title">Qubit</h3>
+          <p>Unidade básica de informação em computação quântica, análoga ao bit clássico. Enquanto um bit clássico pode ser 0 ou 1, um qubit pode existir em uma superposição desses estados.</p>
+        </div>
+        
+        <a href="pages/glossario.html" class="card-link">Ver glossário completo <i class="fas fa-arrow-right"></i></a>
+      </section>
+    </div>
   </main>
+  
+  <!-- Rodapé -->
   <footer>
-    <p>&copy; 2025 Quantum. Todos os direitos reservados.</p>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Quantum Explorer</h3>
+          <p>Explorando a física quântica com profundidade e clareza para estudantes e entusiastas.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Navegação</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="pages/fundamentos.html">Fundamentos</a></li>
+            <li><a href="pages/computacao.html">Computação Quântica</a></li>
+            <li><a href="pages/blog.html">Blog</a></li>
+            <li><a href="pages/sobre.html">Sobre</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Recursos</h3>
+          <ul class="footer-links">
+            <li><a href="pages/glossario.html">Glossário</a></li>
+            <li><a href="pages/quiz.html">Quiz</a></li>
+            <li><a href="pages/recursos.html">Material Complementar</a></li>
+            <li><a href="pages/sitemap.html">Mapa do Site</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contato</h3>
+          <ul class="footer-links">
+            <li><a href="pages/contato.html">Formulário de Contato</a></li>
+            <li><a href="mailto:contato@quantumexplorer.com.br">contato@quantumexplorer.com.br</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 Quantum Explorer. Todos os direitos reservados.</p>
+      </div>
+    </div>
   </footer>
+  
+  <!-- Botão de voltar ao topo -->
+  <button class="back-to-top" aria-label="Voltar ao topo">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  
+  <!-- Scripts -->
+  <script src="js/particles.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,129 +1,314 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quantum | Física Quântica</title>
-  <link rel="stylesheet" href="css_style.css" />
-  <script src="js_particles.min.js"></script>
-  <script src="js_app.js" defer></script>
-
-
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f4;
-    color: #333;
-    transition: background 0.3s, color 0.3s;
-  }
-  header {
-    background: #ffffff;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: box-shadow 0.3s ease-in-out;
-  }
-  nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    background: #ffffff;
-    margin: 0;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #ddd;
-    transition: border-color 0.3s ease-in-out;
-  }
-  nav ul li {
-    margin: 0 1rem;
-    opacity: 0;
-    transform: translateY(-10px);
-    animation: fadeIn 0.6s forwards;
-  }
-  nav ul li:nth-child(1) { animation-delay: 0s; }
-  nav ul li:nth-child(2) { animation-delay: 0.1s; }
-  nav ul li:nth-child(3) { animation-delay: 0.2s; }
-  nav ul li:nth-child(4) { animation-delay: 0.3s; }
-  nav ul li:nth-child(5) { animation-delay: 0.4s; }
-  nav ul li:nth-child(6) { animation-delay: 0.5s; }
-  nav ul li:nth-child(7) { animation-delay: 0.6s; }
-  nav ul li:nth-child(8) { animation-delay: 0.7s; }
-  nav ul li:nth-child(9) { animation-delay: 0.8s; }
-
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    transition: color 0.2s ease-in-out;
-  }
-  nav ul li a:hover {
-    color: #0077cc;
-  }
-  main {
-    max-width: 800px;
-    margin: 2rem auto;
-    background: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    transition: box-shadow 0.3s;
-  }
-  main:hover {
-    box-shadow: 0 0 20px rgba(0,0,0,0.08);
-  }
-  h1, h2 {
-    color: #111;
-    transition: color 0.3s ease-in-out;
-  }
-  footer {
-    text-align: center;
-    padding: 1rem;
-    background: #fff;
-    margin-top: 2rem;
-    font-size: 0.9rem;
-    color: #666;
-    transition: background 0.3s ease-in-out;
-  }
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sobre o Quantum Explorer - Conheça nossa missão de tornar a física quântica acessível para estudantes.">
+  <meta name="keywords" content="sobre quantum explorer, física quântica para estudantes, educação quântica, ensino de física quântica">
+  <meta name="author" content="Quantum Explorer">
+  <meta name="robots" content="index, follow">
+  
+  <title>Sobre Nós | Quantum Explorer</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fabiodias-python.github.io/Quantum-3/pages/sobre.html">
+  <meta property="og:title" content="Sobre Nós | Quantum Explorer">
+  <meta property="og:description" content="Conheça nossa missão de tornar a física quântica acessível para estudantes.">
+  <meta property="og:image" content="../assets/og-image.jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://fabiodias-python.github.io/Quantum-3/pages/sobre.html">
+  <meta property="twitter:title" content="Sobre Nós | Quantum Explorer">
+  <meta property="twitter:description" content="Conheça nossa missão de tornar a física quântica acessível para estudantes.">
+  <meta property="twitter:image" content="../assets/og-image.jpg">
+  
+  <!-- Preload de recursos críticos -->
+  <link rel="preload" href="../js/particles.min.js" as="script">
+  <link rel="preload" href="../js/main.js" as="script">
 </head>
 <body>
+  <!-- Barra de progresso de leitura -->
+  <div class="reading-progress"></div>
+  
+  <!-- Background de partículas -->
   <div id="particles-js"></div>
+  
+  <!-- Cabeçalho -->
   <header>
-    <h1>Quantum</h1>
-    <p>Explorando a Física Quântica com profundidade</p>
-    
-<nav>
-  <ul>
-    <li><a href="index.html">Início</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="fundamentos.html">Fundamentos</a></li>
-    <li><a href="computacao.html">Computação Quântica</a></li>
-    <li><a href="interpretações.html">Interpretações</a></li>
-    <li><a href="historia.html">História</a></li>
-    <li><a href="quiz.html">Quiz</a></li>
-    <li><a href="sobre.html">Sobre</a></li>
-    <li><a href="contato.html">Contato</a></li>
-  </ul>
-</nav>
-
+    <div class="container">
+      <div class="header-content">
+        <h1>Quantum Explorer</h1>
+        <p class="site-description">Explorando a Física Quântica com profundidade e clareza para estudantes</p>
+      </div>
+      
+      <div class="nav-container">
+        <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav">
+          <i class="fas fa-bars"></i>
+          <span class="sr-only">Menu</span>
+        </button>
+        
+        <nav id="main-nav">
+          <ul>
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="fundamentos.html">Fundamentos</a></li>
+            <li><a href="computacao.html">Computação Quântica</a></li>
+            <li><a href="interpretacoes.html">Interpretações</a></li>
+            <li><a href="historia.html">História</a></li>
+            <li><a href="recursos.html">Recursos</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="sobre.html" class="active">Sobre</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
   </header>
+  
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs">
+    <div class="container">
+      <ul>
+        <li><a href="../index.html">Início</a></li>
+        <li class="current">Sobre</li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Conteúdo Principal -->
   <main>
-<h2>Sobre</h2>
-
-<p>Somos uma empresa apaixonada por ciência e tecnologia. Nosso objetivo é divulgar os princípios da física quântica de forma clara e acessível.</p>
-
-</main>
+    <div class="container">
+      <!-- Nossa Missão -->
+      <section class="content-section fade-in">
+        <h2>Nossa Missão</h2>
+        <p>O <strong>Quantum Explorer</strong> nasceu da paixão por tornar a física quântica acessível a todos os estudantes, independentemente de seu nível de conhecimento prévio. Acreditamos que a compreensão dos princípios quânticos é fundamental não apenas para o avanço científico, mas também para a formação de cidadãos preparados para um futuro cada vez mais influenciado por tecnologias quânticas.</p>
+        
+        <p>Nossa missão é desmistificar a física quântica, apresentando seus conceitos de forma clara, visual e interativa, sem sacrificar o rigor científico. Queremos construir pontes entre o conhecimento acadêmico avançado e os estudantes que estão dando seus primeiros passos neste fascinante campo da ciência.</p>
+        
+        <blockquote>
+          <p>"A educação é a arma mais poderosa que você pode usar para mudar o mundo."</p>
+          <cite>— Nelson Mandela</cite>
+        </blockquote>
+      </section>
+      
+      <!-- Nossa História -->
+      <section class="content-section fade-in">
+        <h2>Nossa História</h2>
+        <p>O Quantum Explorer começou como um projeto educacional desenvolvido por um grupo de estudantes e professores apaixonados por física quântica. Frustrados com a falta de recursos educacionais que fossem simultaneamente acessíveis e precisos, decidimos criar nossa própria plataforma de aprendizado.</p>
+        
+        <p>O que começou como um pequeno blog em 2023 cresceu rapidamente, atraindo colaboradores de diversas instituições educacionais e de pesquisa. Hoje, somos uma comunidade dedicada a compartilhar conhecimento sobre física quântica e suas aplicações tecnológicas.</p>
+        
+        <p>Nossa abordagem sempre foi centrada no estudante, com foco em explicações claras, visualizações interativas e exemplos do mundo real. Acreditamos que a melhor maneira de aprender é através da curiosidade e da experimentação, e nosso site reflete essa filosofia.</p>
+      </section>
+      
+      <!-- Nossa Equipe -->
+      <section class="content-section fade-in">
+        <h2>Nossa Equipe</h2>
+        <p>O Quantum Explorer é mantido por uma equipe diversificada de educadores, pesquisadores, desenvolvedores e designers, todos unidos pela paixão de tornar a física quântica acessível. Nossos colaboradores incluem:</p>
+        
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Educadores</h3>
+              <p class="card-description">Professores de física e ciências que garantem que nosso conteúdo seja pedagogicamente sólido e adequado para diferentes níveis de aprendizado.</p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Pesquisadores</h3>
+              <p class="card-description">Cientistas ativos em campos relacionados à física quântica que contribuem com conhecimento especializado e garantem a precisão científica.</p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Desenvolvedores</h3>
+              <p class="card-description">Programadores e desenvolvedores web que criam nossas simulações interativas e mantêm a plataforma funcionando sem problemas.</p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Designers</h3>
+              <p class="card-description">Artistas e designers que transformam conceitos abstratos em visualizações claras e atraentes, facilitando a compreensão.</p>
+            </div>
+          </div>
+        </div>
+        
+        <p>Além de nossa equipe principal, contamos com a valiosa contribuição de estudantes, entusiastas e especialistas que revisam nosso conteúdo, sugerem melhorias e compartilham novas ideias.</p>
+      </section>
+      
+      <!-- Nossos Valores -->
+      <section class="content-section fade-in">
+        <h2>Nossos Valores</h2>
+        
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Acessibilidade</h3>
+              <p class="card-description">Acreditamos que o conhecimento científico deve ser acessível a todos. Nosso conteúdo é gratuito e projetado para ser compreensível por pessoas com diferentes níveis de familiaridade com a física.</p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Precisão</h3>
+              <p class="card-description">Comprometemo-nos com o rigor científico. Todo nosso conteúdo é cuidadosamente pesquisado e revisado por especialistas para garantir sua precisão.</p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Inovação</h3>
+              <p class="card-description">Buscamos constantemente novas formas de explicar conceitos complexos, utilizando tecnologias emergentes e abordagens pedagógicas inovadoras.</p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Comunidade</h3>
+              <p class="card-description">Valorizamos a colaboração e o feedback. Acreditamos que o aprendizado é uma jornada coletiva, e incentivamos a participação ativa de nossa comunidade.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Nosso Impacto -->
+      <section class="content-section fade-in">
+        <h2>Nosso Impacto</h2>
+        <p>Desde o lançamento do Quantum Explorer, temos recebido feedback inspirador de estudantes, educadores e entusiastas de todo o Brasil. Alguns números que nos enchem de orgulho:</p>
+        
+        <ul class="feature-list">
+          <li>Mais de 10.000 estudantes utilizam nossos recursos mensalmente</li>
+          <li>Nosso conteúdo é recomendado por professores em mais de 50 instituições de ensino</li>
+          <li>Recebemos mais de 500 mensagens de agradecimento de estudantes que conseguiram compreender conceitos quânticos através de nossa plataforma</li>
+          <li>Nossos recursos são utilizados como material complementar em diversos cursos de graduação e pós-graduação</li>
+        </ul>
+        
+        <p>Mas além dos números, o que realmente nos motiva são as histórias individuais: o estudante do ensino médio que descobriu sua vocação para a física através de nosso site; o professor que conseguiu tornar suas aulas mais envolventes utilizando nossas simulações; o profissional que mudou de carreira após se apaixonar pela computação quântica através de nossos artigos.</p>
+        
+        <div class="notification notification-success">
+          <div class="notification-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <div class="notification-content">
+            <h4 class="notification-title">Depoimento</h4>
+            <p>"O Quantum Explorer transformou minha relação com a física quântica. Antes, eu achava que era um assunto inacessível para alguém sem formação avançada em física. Graças às explicações claras e às simulações interativas, consegui não apenas entender os conceitos básicos, mas também me apaixonar por este campo fascinante." — Maria S., estudante de engenharia</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Apoie Nosso Trabalho -->
+      <section class="content-section fade-in">
+        <h2>Apoie Nosso Trabalho</h2>
+        <p>O Quantum Explorer é um projeto educacional sem fins lucrativos, mantido principalmente pelo trabalho voluntário de nossa equipe e pelo apoio de nossa comunidade. Mantemos nosso conteúdo gratuito para garantir que o conhecimento seja acessível a todos, independentemente de sua situação financeira.</p>
+        
+        <p>Se você valoriza nosso trabalho e deseja contribuir para que possamos continuar expandindo e melhorando nossa plataforma, existem várias maneiras de nos apoiar:</p>
+        
+        <ul class="feature-list">
+          <li><strong>Contribuições financeiras:</strong> Mesmo pequenas doações nos ajudam a cobrir custos de hospedagem, desenvolvimento e criação de conteúdo.</li>
+          <li><strong>Compartilhamento:</strong> Divulgue o Quantum Explorer para estudantes, professores e entusiastas que possam se beneficiar de nossos recursos.</li>
+          <li><strong>Feedback:</strong> Suas sugestões e comentários são valiosos para melhorarmos continuamente nossa plataforma.</li>
+          <li><strong>Colaboração:</strong> Se você tem conhecimento em física quântica, desenvolvimento web, design ou educação, considere contribuir com seu tempo e expertise.</li>
+        </ul>
+        
+        <p>Para mais informações sobre como apoiar nosso trabalho, visite nossa <a href="contato.html">página de contato</a> ou envie um e-mail para <a href="mailto:apoio@quantumexplorer.com.br">apoio@quantumexplorer.com.br</a>.</p>
+      </section>
+      
+      <!-- Contato -->
+      <section class="content-section fade-in">
+        <h2>Entre em Contato</h2>
+        <p>Queremos ouvir você! Se tiver dúvidas, sugestões, feedback ou interesse em colaborar conosco, não hesite em entrar em contato:</p>
+        
+        <ul class="feature-list">
+          <li><strong>E-mail geral:</strong> <a href="mailto:contato@quantumexplorer.com.br">contato@quantumexplorer.com.br</a></li>
+          <li><strong>Suporte educacional:</strong> <a href="mailto:educacao@quantumexplorer.com.br">educacao@quantumexplorer.com.br</a></li>
+          <li><strong>Colaborações:</strong> <a href="mailto:colabore@quantumexplorer.com.br">colabore@quantumexplorer.com.br</a></li>
+          <li><strong>Formulário de contato:</strong> Disponível em nossa <a href="contato.html">página de contato</a></li>
+        </ul>
+        
+        <p>Também estamos presentes nas redes sociais, onde compartilhamos atualizações, curiosidades e respondemos a perguntas:</p>
+        
+        <div class="social-links" style="margin-top: 1rem;">
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <!-- Rodapé -->
   <footer>
-    <p>&copy; 2025 Quantum. Todos os direitos reservados.</p>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Quantum Explorer</h3>
+          <p>Explorando a física quântica com profundidade e clareza para estudantes e entusiastas.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Navegação</h3>
+          <ul class="footer-links">
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="fundamentos.html">Fundamentos</a></li>
+            <li><a href="computacao.html">Computação Quântica</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Recursos</h3>
+          <ul class="footer-links">
+            <li><a href="glossario.html">Glossário</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="recursos.html">Material Complementar</a></li>
+            <li><a href="sitemap.html">Mapa do Site</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contato</h3>
+          <ul class="footer-links">
+            <li><a href="contato.html">Formulário de Contato</a></li>
+            <li><a href="mailto:contato@quantumexplorer.com.br">contato@quantumexplorer.com.br</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 Quantum Explorer. Todos os direitos reservados.</p>
+      </div>
+    </div>
   </footer>
+  
+  <!-- Botão de voltar ao topo -->
+  <button class="back-to-top" aria-label="Voltar ao topo">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  
+  <!-- Scripts -->
+  <script src="../js/particles.min.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 </html>

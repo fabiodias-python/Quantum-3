@@ -1,135 +1,379 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quantum | Física Quântica</title>
-  <link rel="stylesheet" href="css_style.css" />
-  <script src="js_particles.min.js"></script>
-  <script src="js_app.js" defer></script>
-
-
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f4;
-    color: #333;
-    transition: background 0.3s, color 0.3s;
-  }
-  header {
-    background: #ffffff;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: box-shadow 0.3s ease-in-out;
-  }
-  nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    background: #ffffff;
-    margin: 0;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #ddd;
-    transition: border-color 0.3s ease-in-out;
-  }
-  nav ul li {
-    margin: 0 1rem;
-    opacity: 0;
-    transform: translateY(-10px);
-    animation: fadeIn 0.6s forwards;
-  }
-  nav ul li:nth-child(1) { animation-delay: 0s; }
-  nav ul li:nth-child(2) { animation-delay: 0.1s; }
-  nav ul li:nth-child(3) { animation-delay: 0.2s; }
-  nav ul li:nth-child(4) { animation-delay: 0.3s; }
-  nav ul li:nth-child(5) { animation-delay: 0.4s; }
-  nav ul li:nth-child(6) { animation-delay: 0.5s; }
-  nav ul li:nth-child(7) { animation-delay: 0.6s; }
-  nav ul li:nth-child(8) { animation-delay: 0.7s; }
-  nav ul li:nth-child(9) { animation-delay: 0.8s; }
-
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    transition: color 0.2s ease-in-out;
-  }
-  nav ul li a:hover {
-    color: #0077cc;
-  }
-  main {
-    max-width: 800px;
-    margin: 2rem auto;
-    background: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    transition: box-shadow 0.3s;
-  }
-  main:hover {
-    box-shadow: 0 0 20px rgba(0,0,0,0.08);
-  }
-  h1, h2 {
-    color: #111;
-    transition: color 0.3s ease-in-out;
-  }
-  footer {
-    text-align: center;
-    padding: 1rem;
-    background: #fff;
-    margin-top: 2rem;
-    font-size: 0.9rem;
-    color: #666;
-    transition: background 0.3s ease-in-out;
-  }
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fundamentos da Física Quântica - Aprenda os princípios básicos da mecânica quântica de forma clara e acessível para estudantes.">
+  <meta name="keywords" content="física quântica, mecânica quântica, dualidade onda-partícula, princípio da incerteza, superposição, fundamentos">
+  <meta name="author" content="Quantum Explorer">
+  <meta name="robots" content="index, follow">
+  
+  <title>Fundamentos da Física Quântica | Quantum Explorer</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fabiodias-python.github.io/Quantum-3/pages/fundamentos.html">
+  <meta property="og:title" content="Fundamentos da Física Quântica | Quantum Explorer">
+  <meta property="og:description" content="Aprenda os princípios básicos da mecânica quântica de forma clara e acessível para estudantes.">
+  <meta property="og:image" content="../assets/og-image.jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://fabiodias-python.github.io/Quantum-3/pages/fundamentos.html">
+  <meta property="twitter:title" content="Fundamentos da Física Quântica | Quantum Explorer">
+  <meta property="twitter:description" content="Aprenda os princípios básicos da mecânica quântica de forma clara e acessível para estudantes.">
+  <meta property="twitter:image" content="../assets/og-image.jpg">
+  
+  <!-- Preload de recursos críticos -->
+  <link rel="preload" href="../js/particles.min.js" as="script">
+  <link rel="preload" href="../js/main.js" as="script">
 </head>
 <body>
+  <!-- Barra de progresso de leitura -->
+  <div class="reading-progress"></div>
+  
+  <!-- Background de partículas -->
   <div id="particles-js"></div>
+  
+  <!-- Cabeçalho -->
   <header>
-    <h1>Quantum</h1>
-    <p>Explorando a Física Quântica com profundidade</p>
-    
-<nav>
-  <ul>
-    <li><a href="index.html">Início</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="fundamentos.html">Fundamentos</a></li>
-    <li><a href="computacao.html">Computação Quântica</a></li>
-    <li><a href="interpretações.html">Interpretações</a></li>
-    <li><a href="historia.html">História</a></li>
-    <li><a href="quiz.html">Quiz</a></li>
-    <li><a href="sobre.html">Sobre</a></li>
-    <li><a href="contato.html">Contato</a></li>
-  </ul>
-</nav>
-
+    <div class="container">
+      <div class="header-content">
+        <h1>Quantum Explorer</h1>
+        <p class="site-description">Explorando a Física Quântica com profundidade e clareza para estudantes</p>
+      </div>
+      
+      <div class="nav-container">
+        <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav">
+          <i class="fas fa-bars"></i>
+          <span class="sr-only">Menu</span>
+        </button>
+        
+        <nav id="main-nav">
+          <ul>
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="fundamentos.html" class="active">Fundamentos</a></li>
+            <li><a href="computacao.html">Computação Quântica</a></li>
+            <li><a href="interpretacoes.html">Interpretações</a></li>
+            <li><a href="historia.html">História</a></li>
+            <li><a href="recursos.html">Recursos</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
   </header>
+  
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs">
+    <div class="container">
+      <ul>
+        <li><a href="../index.html">Início</a></li>
+        <li class="current">Fundamentos</li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Conteúdo Principal -->
   <main>
-
-<h2>Superposição Quântica</h2>
-<p>Na mecânica quântica, superposição é a capacidade de uma partícula existir simultaneamente em múltiplos estados possíveis. Um exemplo clássico é o experimento mental do "Gato de Schrödinger", em que um gato está, ao mesmo tempo, vivo e morto até que alguém observe. No nível subatômico, isso significa que partículas como elétrons podem estar em vários lugares ou estados de energia ao mesmo tempo.</p>
-
-<h2>Entrelaçamento Quântico</h2>
-<p>Entrelaçamento ocorre quando duas partículas se tornam interligadas de forma que o estado de uma determina instantaneamente o estado da outra, mesmo que estejam separadas por grandes distâncias. Esse fenômeno foi chamado de “ação fantasmagórica à distância” por Einstein, e é uma das bases para a comunicação e computação quânticas.</p>
-
-<h2>Colapso da Função de Onda</h2>
-<p>A função de onda representa todos os possíveis estados de uma partícula. Quando realizamos uma medição, a função de onda "colapsa", e a partícula assume um estado definido. Esse colapso é uma das características mais intrigantes e debatidas da física quântica.</p>
-
-</main>
+    <div class="container">
+      <!-- Introdução -->
+      <section class="content-section fade-in">
+        <h2>Fundamentos da Física Quântica</h2>
+        <p>A física quântica, também conhecida como mecânica quântica, é um ramo da física que lida com o comportamento da matéria e da energia nas escalas mais fundamentais. Desenvolvida no início do século XX, ela revolucionou nossa compreensão do universo, introduzindo conceitos que desafiam nossa intuição baseada no mundo macroscópico.</p>
+        
+        <p>Nesta seção, exploraremos os princípios fundamentais que formam a base da teoria quântica, desde a quantização da energia até o princípio da incerteza de Heisenberg. Estes conceitos são essenciais para compreender as tecnologias modernas e as fronteiras atuais da física.</p>
+        
+        <div class="notification notification-info">
+          <div class="notification-icon">
+            <i class="fas fa-info-circle"></i>
+          </div>
+          <div class="notification-content">
+            <h4 class="notification-title">Nota para Estudantes</h4>
+            <p>A física quântica pode parecer contraintuitiva à primeira vista. Isso é normal! Mesmo os físicos mais renomados, como Richard Feynman, afirmaram que "ninguém entende realmente a mecânica quântica". O importante é familiarizar-se gradualmente com os conceitos e suas implicações matemáticas.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Princípios Fundamentais -->
+      <section class="content-section fade-in">
+        <h2>Princípios Fundamentais</h2>
+        
+        <article>
+          <h3>Quantização da Energia</h3>
+          <p>Um dos primeiros insights que levaram ao desenvolvimento da física quântica foi a descoberta de que a energia não é contínua, mas sim <span class="floating-glossary-term">quantizada<span class="term-definition">Quantização significa que uma grandeza física só pode assumir certos valores discretos, e não qualquer valor contínuo.</span></span>. Isso significa que a energia só pode existir em pacotes discretos, ou "quanta".</p>
+          
+          <p>Em 1900, Max Planck propôs esta ideia para resolver o problema da radiação do corpo negro, sugerindo que a energia eletromagnética só poderia ser emitida em pacotes discretos, cujo tamanho é proporcional à frequência da radiação:</p>
+          
+          <div style="text-align: center; margin: 2rem 0;">
+            <code>E = h × f</code>
+          </div>
+          
+          <p>Onde <code>E</code> é a energia, <code>f</code> é a frequência, e <code>h</code> é a constante de Planck (aproximadamente 6,626 × 10<sup>-34</sup> J·s).</p>
+          
+          <p>Esta ideia revolucionária foi posteriormente aplicada por Einstein para explicar o efeito fotoelétrico, estabelecendo que a luz é composta por pacotes discretos de energia chamados fótons.</p>
+          
+          <div class="simulation-container" data-simulation="wave-particle">
+            <h4>Simulação: Dualidade Onda-Partícula</h4>
+            <p>Ajuste o controle deslizante para ver a transição entre o comportamento de onda e de partícula da luz.</p>
+            
+            <div class="simulation-controls">
+              <div class="simulation-control">
+                <label class="simulation-label" for="mode-slider">Comportamento Onda-Partícula:</label>
+                <input type="range" id="mode-slider" class="simulation-slider" data-param="mode" min="0" max="1" step="0.01" value="0.5">
+                <div class="simulation-labels">
+                  <span>Onda</span>
+                  <span style="float: right;">Partícula</span>
+                </div>
+              </div>
+            </div>
+            
+            <canvas class="simulation-canvas"></canvas>
+            
+            <p class="simulation-explanation">
+              Esta simulação ilustra a dualidade onda-partícula, um conceito fundamental da mecânica quântica que sugere que toda partícula ou entidade quântica pode ser descrita como uma onda ou como uma partícula, dependendo do experimento.
+            </p>
+          </div>
+        </article>
+        
+        <article>
+          <h3>Dualidade Onda-Partícula</h3>
+          <p>Um dos conceitos mais intrigantes da física quântica é a dualidade onda-partícula. Este princípio estabelece que entidades quânticas, como elétrons e fótons, podem exibir propriedades tanto de ondas quanto de partículas, dependendo de como são observadas.</p>
+          
+          <p>O experimento da dupla fenda, inicialmente realizado com luz e posteriormente com elétrons e até moléculas maiores, demonstra claramente esta dualidade. Quando partículas são enviadas uma a uma através de duas fendas, elas criam um padrão de interferência (característica de ondas) no detector. No entanto, se tentarmos observar por qual fenda cada partícula passa, o padrão de interferência desaparece, e as partículas se comportam como... bem, partículas!</p>
+          
+          <blockquote>
+            <p>"Se você pensa que entendeu a mecânica quântica, você não entendeu a mecânica quântica."</p>
+            <cite>— Richard Feynman, físico teórico e ganhador do Prêmio Nobel</cite>
+          </blockquote>
+          
+          <p>Esta dualidade é matematicamente descrita pela equação de de Broglie, que relaciona o comprimento de onda de uma partícula com seu momento:</p>
+          
+          <div style="text-align: center; margin: 2rem 0;">
+            <code>λ = h / p</code>
+          </div>
+          
+          <p>Onde <code>λ</code> é o comprimento de onda, <code>h</code> é a constante de Planck, e <code>p</code> é o momento da partícula.</p>
+        </article>
+        
+        <article>
+          <h3>Princípio da Incerteza de Heisenberg</h3>
+          <p>Em 1927, Werner Heisenberg formulou um princípio fundamental que estabelece limites para a precisão com que podemos conhecer certas propriedades complementares de uma partícula quântica. O princípio da incerteza afirma que é impossível conhecer simultaneamente, com precisão arbitrária, tanto a posição quanto o momento (velocidade × massa) de uma partícula.</p>
+          
+          <p>Matematicamente, o princípio é expresso como:</p>
+          
+          <div style="text-align: center; margin: 2rem 0;">
+            <code>ΔxΔp ≥ ħ/2</code>
+          </div>
+          
+          <p>Onde <code>Δx</code> é a incerteza na posição, <code>Δp</code> é a incerteza no momento, e <code>ħ</code> é a constante de Planck reduzida (h/2π).</p>
+          
+          <p>É importante entender que esta incerteza não é resultado de limitações em nossos instrumentos de medição, mas uma característica fundamental da natureza quântica da realidade. Quanto mais precisamente tentamos medir a posição de uma partícula, mais incerta se torna sua velocidade, e vice-versa.</p>
+          
+          <div class="notification notification-warning">
+            <div class="notification-icon">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="notification-content">
+              <h4 class="notification-title">Interpretação Comum Equivocada</h4>
+              <p>O princípio da incerteza é frequentemente mal interpretado como "o ato de observação altera o sistema". Embora isso possa ocorrer em alguns casos, o princípio da incerteza é mais fundamental: ele afirma que certas propriedades complementares simplesmente não podem ter valores precisamente definidos simultaneamente, independentemente de como ou se as medimos.</p>
+            </div>
+          </div>
+        </article>
+        
+        <article>
+          <h3>Superposição Quântica</h3>
+          <p>A superposição é um princípio da mecânica quântica que afirma que um sistema quântico pode existir em múltiplos estados simultaneamente, até que seja medido ou observado. Quando realizamos uma medição, o sistema "colapsa" para um dos possíveis estados.</p>
+          
+          <p>O famoso experimento mental do "Gato de Schrödinger" foi proposto para ilustrar as implicações aparentemente paradoxais deste princípio. No experimento, um gato hipotético está em uma caixa fechada com um mecanismo que pode matar o gato dependendo do decaimento de um átomo radioativo. De acordo com a mecânica quântica, até que a caixa seja aberta (uma observação seja feita), o átomo está em uma superposição de estados decaído e não-decaído, e consequentemente, o gato estaria em uma superposição de estados vivo e morto.</p>
+          
+          <p>Matematicamente, um estado quântico em superposição pode ser representado como:</p>
+          
+          <div style="text-align: center; margin: 2rem 0;">
+            <code>|ψ⟩ = α|0⟩ + β|1⟩</code>
+          </div>
+          
+          <p>Onde <code>|ψ⟩</code> representa o estado quântico, <code>|0⟩</code> e <code>|1⟩</code> são os estados base, e <code>α</code> e <code>β</code> são amplitudes de probabilidade complexas tais que <code>|α|² + |β|² = 1</code>.</p>
+          
+          <p>A superposição é o princípio fundamental que permite o poder computacional dos computadores quânticos, permitindo-lhes processar múltiplas possibilidades simultaneamente.</p>
+        </article>
+        
+        <article>
+          <h3>Emaranhamento Quântico</h3>
+          <p>O emaranhamento quântico é um fenômeno onde duas ou mais partículas se tornam correlacionadas de tal forma que o estado quântico de cada partícula não pode ser descrito independentemente das outras, mesmo quando separadas por grandes distâncias.</p>
+          
+          <p>Einstein referiu-se a este fenômeno como "ação fantasmagórica à distância" e o usou como argumento contra a completude da mecânica quântica. No entanto, experimentos posteriores confirmaram que o emaranhamento é real e que a mecânica quântica descreve corretamente este comportamento.</p>
+          
+          <p>Quando partículas emaranhadas são medidas, seus resultados mostram correlações que excedem o que seria possível em um mundo puramente clássico. Estas correlações são descritas pelas desigualdades de Bell, cuja violação experimental confirma a natureza não-local da mecânica quântica.</p>
+          
+          <div class="simulation-container" data-simulation="entanglement">
+            <h4>Simulação: Emaranhamento Quântico</h4>
+            <p>Ajuste o controle deslizante para ver como o grau de correlação entre partículas emaranhadas afeta seu comportamento.</p>
+            
+            <div class="simulation-controls">
+              <div class="simulation-control">
+                <label class="simulation-label" for="correlation-slider">Grau de Correlação:</label>
+                <input type="range" id="correlation-slider" class="simulation-slider" data-param="correlation" min="0" max="1" step="0.01" value="0.5">
+                <div class="simulation-labels">
+                  <span>Sem Correlação</span>
+                  <span style="float: right;">Correlação Total</span>
+                </div>
+              </div>
+            </div>
+            
+            <canvas class="simulation-canvas"></canvas>
+            
+            <p class="simulation-explanation">
+              Esta simulação ilustra como duas partículas emaranhadas mantêm uma correlação instantânea independentemente da distância entre elas. Quando o grau de correlação é máximo, a medição de uma partícula determina instantaneamente o estado da outra.
+            </p>
+          </div>
+          
+          <p>O emaranhamento quântico tem aplicações práticas em tecnologias emergentes como criptografia quântica, teleportação quântica e computação quântica distribuída.</p>
+        </article>
+      </section>
+      
+      <!-- Aplicações dos Fundamentos -->
+      <section class="content-section fade-in">
+        <h2>Aplicações dos Fundamentos Quânticos</h2>
+        <p>Os princípios fundamentais da física quântica não são apenas curiosidades teóricas; eles têm aplicações práticas que revolucionaram a tecnologia moderna e continuam a abrir novas possibilidades:</p>
+        
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Transistores e Eletrônica</h3>
+              <p class="card-description">Os transistores, componentes fundamentais de todos os dispositivos eletrônicos modernos, funcionam com base em princípios quânticos como o tunelamento e as bandas de energia em semicondutores.</p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Lasers</h3>
+              <p class="card-description">Os lasers funcionam através da emissão estimulada, um processo quântico onde fótons induzem átomos excitados a emitir fótons idênticos, criando luz coerente.</p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Ressonância Magnética</h3>
+              <p class="card-description">A ressonância magnética nuclear (RMN), usada em medicina para criar imagens detalhadas do corpo, baseia-se no comportamento quântico dos spins nucleares em campos magnéticos.</p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title">Computação Quântica</h3>
+              <p class="card-description">Os computadores quânticos exploram a superposição e o emaranhamento para realizar cálculos que seriam intratáveis para computadores clássicos.</p>
+              <a href="computacao.html" class="card-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Recursos Adicionais -->
+      <section class="content-section fade-in">
+        <h2>Recursos Adicionais</h2>
+        <p>Para aprofundar seu conhecimento sobre os fundamentos da física quântica, recomendamos os seguintes recursos:</p>
+        
+        <ul class="feature-list">
+          <li><a href="recursos.html#livros">Livros recomendados</a> para diferentes níveis de conhecimento</li>
+          <li><a href="recursos.html#videos">Vídeos e documentários</a> que explicam visualmente os conceitos quânticos</li>
+          <li><a href="recursos.html#cursos">Cursos online</a> de universidades renomadas</li>
+          <li><a href="quiz.html">Quiz interativo</a> para testar seu conhecimento</li>
+        </ul>
+        
+        <div class="share-buttons">
+          <span>Compartilhe esta página:</span>
+          <a href="#" onclick="return shareContent('twitter')" class="share-button share-twitter" aria-label="Compartilhar no Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" onclick="return shareContent('facebook')" class="share-button share-facebook" aria-label="Compartilhar no Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" onclick="return shareContent('linkedin')" class="share-button share-linkedin" aria-label="Compartilhar no LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" onclick="return shareContent('whatsapp')" class="share-button share-whatsapp" aria-label="Compartilhar no WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+        
+        <a href="#" onclick="return printContent()" class="print-button">
+          <i class="fas fa-print"></i> Imprimir esta página
+        </a>
+      </section>
+    </div>
+  </main>
+  
+  <!-- Rodapé -->
   <footer>
-    <p>&copy; 2025 Quantum. Todos os direitos reservados.</p>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Quantum Explorer</h3>
+          <p>Explorando a física quântica com profundidade e clareza para estudantes e entusiastas.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Navegação</h3>
+          <ul class="footer-links">
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="fundamentos.html">Fundamentos</a></li>
+            <li><a href="computacao.html">Computação Quântica</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Recursos</h3>
+          <ul class="footer-links">
+            <li><a href="glossario.html">Glossário</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="recursos.html">Material Complementar</a></li>
+            <li><a href="sitemap.html">Mapa do Site</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contato</h3>
+          <ul class="footer-links">
+            <li><a href="contato.html">Formulário de Contato</a></li>
+            <li><a href="mailto:contato@quantumexplorer.com.br">contato@quantumexplorer.com.br</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 Quantum Explorer. Todos os direitos reservados.</p>
+      </div>
+    </div>
   </footer>
+  
+  <!-- Botão de voltar ao topo -->
+  <button class="back-to-top" aria-label="Voltar ao topo">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  
+  <!-- Scripts -->
+  <script src="../js/particles.min.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 </html>

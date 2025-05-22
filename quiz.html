@@ -1,134 +1,411 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quantum | Física Quântica</title>
-  <link rel="stylesheet" href="css_style.css" />
-  <script src="js_particles.min.js"></script>
-  <script src="js_app.js" defer></script>
-
-
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f4;
-    color: #333;
-    transition: background 0.3s, color 0.3s;
-  }
-  header {
-    background: #ffffff;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: box-shadow 0.3s ease-in-out;
-  }
-  nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    background: #ffffff;
-    margin: 0;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #ddd;
-    transition: border-color 0.3s ease-in-out;
-  }
-  nav ul li {
-    margin: 0 1rem;
-    opacity: 0;
-    transform: translateY(-10px);
-    animation: fadeIn 0.6s forwards;
-  }
-  nav ul li:nth-child(1) { animation-delay: 0s; }
-  nav ul li:nth-child(2) { animation-delay: 0.1s; }
-  nav ul li:nth-child(3) { animation-delay: 0.2s; }
-  nav ul li:nth-child(4) { animation-delay: 0.3s; }
-  nav ul li:nth-child(5) { animation-delay: 0.4s; }
-  nav ul li:nth-child(6) { animation-delay: 0.5s; }
-  nav ul li:nth-child(7) { animation-delay: 0.6s; }
-  nav ul li:nth-child(8) { animation-delay: 0.7s; }
-  nav ul li:nth-child(9) { animation-delay: 0.8s; }
-
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    transition: color 0.2s ease-in-out;
-  }
-  nav ul li a:hover {
-    color: #0077cc;
-  }
-  main {
-    max-width: 800px;
-    margin: 2rem auto;
-    background: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    transition: box-shadow 0.3s;
-  }
-  main:hover {
-    box-shadow: 0 0 20px rgba(0,0,0,0.08);
-  }
-  h1, h2 {
-    color: #111;
-    transition: color 0.3s ease-in-out;
-  }
-  footer {
-    text-align: center;
-    padding: 1rem;
-    background: #fff;
-    margin-top: 2rem;
-    font-size: 0.9rem;
-    color: #666;
-    transition: background 0.3s ease-in-out;
-  }
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quiz sobre Física Quântica - Teste seus conhecimentos sobre mecânica quântica e computação quântica com nosso quiz interativo.">
+  <meta name="keywords" content="quiz física quântica, teste conhecimentos quânticos, perguntas mecânica quântica, desafio computação quântica">
+  <meta name="author" content="Quantum Explorer">
+  <meta name="robots" content="index, follow">
+  
+  <title>Quiz Quântico | Quantum Explorer</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fabiodias-python.github.io/Quantum-3/pages/quiz.html">
+  <meta property="og:title" content="Quiz Quântico | Quantum Explorer">
+  <meta property="og:description" content="Teste seus conhecimentos sobre mecânica quântica e computação quântica com nosso quiz interativo.">
+  <meta property="og:image" content="../assets/og-image.jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://fabiodias-python.github.io/Quantum-3/pages/quiz.html">
+  <meta property="twitter:title" content="Quiz Quântico | Quantum Explorer">
+  <meta property="twitter:description" content="Teste seus conhecimentos sobre mecânica quântica e computação quântica com nosso quiz interativo.">
+  <meta property="twitter:image" content="../assets/og-image.jpg">
+  
+  <!-- Preload de recursos críticos -->
+  <link rel="preload" href="../js/particles.min.js" as="script">
+  <link rel="preload" href="../js/main.js" as="script">
 </head>
 <body>
+  <!-- Barra de progresso de leitura -->
+  <div class="reading-progress"></div>
+  
+  <!-- Background de partículas -->
   <div id="particles-js"></div>
+  
+  <!-- Cabeçalho -->
   <header>
-    <h1>Quantum</h1>
-    <p>Explorando a Física Quântica com profundidade</p>
-    
-<nav>
-  <ul>
-    <li><a href="index.html">Início</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="fundamentos.html">Fundamentos</a></li>
-    <li><a href="computacao.html">Computação Quântica</a></li>
-    <li><a href="interpretações.html">Interpretações</a></li>
-    <li><a href="historia.html">História</a></li>
-    <li><a href="quiz.html">Quiz</a></li>
-    <li><a href="sobre.html">Sobre</a></li>
-    <li><a href="contato.html">Contato</a></li>
-  </ul>
-</nav>
-
-  </header>
-  <main>
-<h2>Quiz Interativo</h2>
-
-        <p>Teste seu conhecimento com nosso quiz quântico!</p>
-        <ul>
-            <li><b>Pergunta:</b> O que acontece quando medimos um qubit em superposição?</li>
-            <li><i>Resposta:</i> Ele colapsa para um dos estados possíveis.</li>
-        </ul>
-        <p>Mais perguntas em breve!</p>
+    <div class="container">
+      <div class="header-content">
+        <h1>Quantum Explorer</h1>
+        <p class="site-description">Explorando a Física Quântica com profundidade e clareza para estudantes</p>
+      </div>
+      
+      <div class="nav-container">
+        <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav">
+          <i class="fas fa-bars"></i>
+          <span class="sr-only">Menu</span>
+        </button>
         
-</main>
+        <nav id="main-nav">
+          <ul>
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="fundamentos.html">Fundamentos</a></li>
+            <li><a href="computacao.html">Computação Quântica</a></li>
+            <li><a href="interpretacoes.html">Interpretações</a></li>
+            <li><a href="historia.html">História</a></li>
+            <li><a href="recursos.html">Recursos</a></li>
+            <li><a href="quiz.html" class="active">Quiz</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs">
+    <div class="container">
+      <ul>
+        <li><a href="../index.html">Início</a></li>
+        <li class="current">Quiz</li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Conteúdo Principal -->
+  <main>
+    <div class="container">
+      <!-- Introdução -->
+      <section class="content-section fade-in">
+        <h2>Quiz Quântico: Teste Seus Conhecimentos</h2>
+        <p>Bem-vindo ao nosso Quiz Quântico! Esta é uma oportunidade para testar seus conhecimentos sobre física quântica e computação quântica de forma interativa e divertida. Cada pergunta vem com uma explicação detalhada após sua resposta, tornando este quiz não apenas um teste, mas também uma ferramenta de aprendizado.</p>
+        
+        <p>O quiz está dividido em três níveis de dificuldade. Recomendamos começar pelo nível básico e progredir à medida que se sentir confortável com os conceitos. Não se preocupe se algumas perguntas parecerem desafiadoras — a física quântica é um campo complexo, e o aprendizado é um processo contínuo!</p>
+        
+        <div class="notification notification-info">
+          <div class="notification-icon">
+            <i class="fas fa-info-circle"></i>
+          </div>
+          <div class="notification-content">
+            <h4 class="notification-title">Como Funciona</h4>
+            <p>Selecione uma resposta para cada pergunta e clique em "Verificar Respostas" ao final de cada seção. Você receberá feedback imediato e explicações detalhadas para cada questão. Seu progresso é salvo automaticamente, permitindo que você retorne e continue de onde parou.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Quiz Nível Básico -->
+      <section class="content-section fade-in">
+        <h2>Nível Básico: Fundamentos da Física Quântica</h2>
+        
+        <div class="quiz-container">
+          <div class="quiz-question">
+            <h3>Pergunta 1: O que é a dualidade onda-partícula?</h3>
+            <ul class="quiz-options">
+              <li class="quiz-option" data-correct="true">Um princípio que afirma que entidades quânticas podem exibir propriedades tanto de ondas quanto de partículas</li>
+              <li class="quiz-option">A teoria de que partículas podem se transformar em ondas e vice-versa</li>
+              <li class="quiz-option">A ideia de que ondas e partículas são a mesma coisa</li>
+              <li class="quiz-option">Um fenômeno onde partículas se dividem em duas</li>
+            </ul>
+            <div class="quiz-feedback" data-correct="A dualidade onda-partícula é um conceito fundamental da mecânica quântica que descreve como entidades quânticas (como elétrons e fótons) podem exibir comportamentos característicos tanto de ondas quanto de partículas, dependendo do experimento realizado." data-incorrect="A dualidade onda-partícula não significa que partículas se transformam em ondas, mas sim que elas possuem propriedades de ambas simultaneamente. O experimento da dupla fenda demonstra claramente este princípio."></div>
+          </div>
+          
+          <div class="quiz-question">
+            <h3>Pergunta 2: Quem propôs o princípio da incerteza?</h3>
+            <ul class="quiz-options">
+              <li class="quiz-option">Albert Einstein</li>
+              <li class="quiz-option">Niels Bohr</li>
+              <li class="quiz-option" data-correct="true">Werner Heisenberg</li>
+              <li class="quiz-option">Erwin Schrödinger</li>
+            </ul>
+            <div class="quiz-feedback" data-correct="Werner Heisenberg formulou o princípio da incerteza em 1927, estabelecendo que é impossível conhecer simultaneamente, com precisão arbitrária, tanto a posição quanto o momento de uma partícula." data-incorrect="Foi Werner Heisenberg quem formulou o princípio da incerteza em 1927, um dos conceitos mais fundamentais e contraintuitivos da mecânica quântica."></div>
+          </div>
+          
+          <div class="quiz-question">
+            <h3>Pergunta 3: O que é superposição quântica?</h3>
+            <ul class="quiz-options">
+              <li class="quiz-option">Quando duas partículas colidem e se fundem</li>
+              <li class="quiz-option" data-correct="true">Um princípio que afirma que um sistema quântico pode existir em múltiplos estados simultaneamente</li>
+              <li class="quiz-option">Quando uma partícula se divide em duas</li>
+              <li class="quiz-option">A sobreposição de duas ondas eletromagnéticas</li>
+            </ul>
+            <div class="quiz-feedback" data-correct="A superposição quântica é um princípio fundamental que permite que sistemas quânticos existam em múltiplos estados simultaneamente, até que sejam medidos ou observados. Este princípio é a base para o poder dos computadores quânticos." data-incorrect="A superposição quântica não se refere à fusão ou divisão de partículas, mas sim à capacidade de um sistema quântico existir em múltiplos estados simultaneamente até ser medido."></div>
+          </div>
+          
+          <div class="quiz-question">
+            <h3>Pergunta 4: O que Einstein chamou de 'ação fantasmagórica à distância'?</h3>
+            <ul class="quiz-options">
+              <li class="quiz-option">Superposição quântica</li>
+              <li class="quiz-option">Dualidade onda-partícula</li>
+              <li class="quiz-option" data-correct="true">Emaranhamento quântico</li>
+              <li class="quiz-option">Princípio da incerteza</li>
+            </ul>
+            <div class="quiz-feedback" data-correct="Einstein usou o termo 'ação fantasmagórica à distância' para se referir ao emaranhamento quântico, um fenômeno onde partículas emaranhadas mantêm correlações instantâneas independentemente da distância entre elas." data-incorrect="Einstein usou esta expressão para descrever o emaranhamento quântico, um fenômeno que ele considerava incompatível com a teoria da relatividade, pois parecia permitir efeitos instantâneos entre partículas distantes."></div>
+          </div>
+          
+          <div class="quiz-question">
+            <h3>Pergunta 5: Qual é a unidade básica de informação em computação quântica?</h3>
+            <ul class="quiz-options">
+              <li class="quiz-option">Bit</li>
+              <li class="quiz-option" data-correct="true">Qubit</li>
+              <li class="quiz-option">Byte</li>
+              <li class="quiz-option">Qubyte</li>
+            </ul>
+            <div class="quiz-feedback" data-correct="O qubit (bit quântico) é a unidade básica de informação em computação quântica. Enquanto um bit clássico pode ser 0 ou 1, um qubit pode existir em uma superposição desses estados." data-incorrect="A unidade básica de informação em computação quântica é o qubit (bit quântico), não o bit clássico. O qubit pode existir em superposição de estados, o que é fundamental para o poder da computação quântica."></div>
+          </div>
+          
+          <button class="quiz-button">Verificar Respostas</button>
+          
+          <div class="quiz-results">
+            <h3>Seus Resultados</h3>
+            <p>Você acertou <span class="quiz-score">0/5</span> questões!</p>
+            <p>Continue explorando nosso site para aprender mais sobre física quântica.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Quiz Nível Intermediário -->
+      <section class="content-section fade-in">
+        <h2>Nível Intermediário: Aprofundando na Mecânica Quântica</h2>
+        
+        <div class="quiz-container">
+          <div class="quiz-question">
+            <h3>Pergunta 1: O que afirma o teorema da não-clonagem quântica?</h3>
+            <ul class="quiz-options">
+              <li class="quiz-option">Que é possível criar cópias perfeitas de qualquer estado quântico</li>
+              <li class="quiz-option" data-correct="true">Que é impossível criar uma cópia perfeita de um estado quântico desconhecido</li>
+              <li class="quiz-option">Que estados quânticos não podem ser medidos sem destruí-los</li>
+              <li class="quiz-option">Que estados quânticos não podem existir em superposição</li>
+            </ul>
+            <div class="quiz-feedback" data-correct="O teorema da não-clonagem afirma que é impossível criar uma cópia perfeita de um estado quântico desconhecido. Este teorema tem implicações importantes para a criptografia quântica e a correção de erros quânticos." data-incorrect="O teorema da não-clonagem é um resultado fundamental que afirma ser impossível criar uma cópia perfeita de um estado quântico desconhecido, o que difere significativamente da informação clássica, que pode ser copiada livremente."></div>
+          </div>
+          
+          <div class="quiz-question">
+            <h3>Pergunta 2: Qual é a interpretação da mecânica quântica que envolve múltiplos universos?</h3>
+            <ul class="quiz-options">
+              <li class="quiz-option">Interpretação de Copenhague</li>
+              <li class="quiz-option">Interpretação de Bohm</li>
+              <li class="quiz-option" data-correct="true">Interpretação de Muitos Mundos</li>
+              <li class="quiz-option">Interpretação de Ensemble</li>
+            </ul>
+            <div class="quiz-feedback" data-correct="A Interpretação de Muitos Mundos, proposta por Hugh Everett III, sugere que todas as possibilidades quânticas se realizam em universos paralelos, eliminando o 'colapso' da função de onda." data-incorrect="A interpretação que envolve múltiplos universos é a Interpretação de Muitos Mundos, proposta por Hugh Everett III em 1957. Ela sugere que cada possível resultado de uma medição quântica ocorre em um universo diferente."></div>
+          </div>
+          
+          <div class="quiz-question">
+            <h3>Pergunta 3: O que é o emaranhamento quântico?</h3>
+            <ul class="quiz-options">
+              <li class="quiz-option">Quando partículas quânticas se fundem</li>
+              <li class="quiz-option">Quando uma partícula se divide em duas idênticas</li>
+              <li class="quiz-option" data-correct="true">Quando duas ou mais partículas se tornam correlacionadas de tal forma que o estado de cada uma não pode ser descrito independentemente das outras</li>
+              <li class="quiz-option">Quando partículas quânticas se aniquilam mutuamente</li>
+            </ul>
+            <div class="quiz-feedback" data-correct="O emaranhamento quântico ocorre quando duas ou mais partículas se tornam correlacionadas de tal forma que o estado quântico de cada partícula não pode ser descrito independentemente das outras, mesmo quando separadas por grandes distâncias." data-incorrect="O emaranhamento quântico é um fenômeno onde partículas se tornam correlacionadas de tal forma que o estado de cada uma não pode ser descrito independentemente das outras, mesmo quando separadas por grandes distâncias."></div>
+          </div>
+          
+          <div class="quiz-question">
+            <h3>Pergunta 4: Qual é a equação fundamental que descreve como os sistemas quânticos evoluem no tempo?</h3>
+            <ul class="quiz-options">
+              <li class="quiz-option">Equação de Einstein</li>
+              <li class="quiz-option">Equação de Heisenberg</li>
+              <li class="quiz-option" data-correct="true">Equação de Schrödinger</li>
+              <li class="quiz-option">Equação de Dirac</li>
+            </ul>
+            <div class="quiz-feedback" data-correct="A equação de Schrödinger, desenvolvida por Erwin Schrödinger em 1925, é a equação fundamental que descreve como a função de onda de um sistema quântico evolui no tempo." data-incorrect="A equação fundamental que descreve a evolução temporal de sistemas quânticos não-relativísticos é a equação de Schrödinger, proposta por Erwin Schrödinger em 1925."></div>
+          </div>
+          
+          <div class="quiz-question">
+            <h3>Pergunta 5: O que é uma porta quântica?</h3>
+            <ul class="quiz-options">
+              <li class="quiz-option">Um dispositivo físico que isola sistemas quânticos do ambiente</li>
+              <li class="quiz-option" data-correct="true">Uma operação básica em computação quântica que manipula estados de qubits</li>
+              <li class="quiz-option">Um mecanismo para transferir informação entre computadores quânticos</li>
+              <li class="quiz-option">Um portal teórico entre universos paralelos na interpretação de muitos mundos</li>
+            </ul>
+            <div class="quiz-feedback" data-correct="Uma porta quântica é uma operação básica em computação quântica que manipula estados de qubits, análoga às portas lógicas em computação clássica, mas operando segundo os princípios da mecânica quântica." data-incorrect="Uma porta quântica é o equivalente quântico de uma porta lógica em computação clássica. É uma operação básica que manipula estados de qubits, como a porta Hadamard que cria superposições ou a porta CNOT que cria emaranhamento."></div>
+          </div>
+          
+          <button class="quiz-button">Verificar Respostas</button>
+          
+          <div class="quiz-results">
+            <h3>Seus Resultados</h3>
+            <p>Você acertou <span class="quiz-score">0/5</span> questões!</p>
+            <p>Continue explorando nosso site para aprender mais sobre física quântica.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Quiz Nível Avançado -->
+      <section class="content-section fade-in">
+        <h2>Nível Avançado: Fronteiras da Física Quântica</h2>
+        
+        <div class="quiz-container">
+          <div class="quiz-question">
+            <h3>Pergunta 1: Qual algoritmo quântico oferece uma aceleração exponencial para o problema de fatoração de números inteiros?</h3>
+            <ul class="quiz-options">
+              <li class="quiz-option">Algoritmo de Grover</li>
+              <li class="quiz-option" data-correct="true">Algoritmo de Shor</li>
+              <li class="quiz-option">Algoritmo HHL</li>
+              <li class="quiz-option">Algoritmo de Deutsch-Jozsa</li>
+            </ul>
+            <div class="quiz-feedback" data-correct="O algoritmo de Shor, desenvolvido por Peter Shor em 1994, oferece uma aceleração exponencial para o problema de fatoração de números inteiros, com implicações significativas para a criptografia." data-incorrect="O algoritmo que oferece aceleração exponencial para fatoração de números é o algoritmo de Shor, não o algoritmo de Grover (que oferece aceleração quadrática para busca) ou outros algoritmos quânticos."></div>
+          </div>
+          
+          <div class="quiz-question">
+            <h3>Pergunta 2: O que é decoerência quântica?</h3>
+            <ul class="quiz-options">
+              <li class="quiz-option" data-correct="true">O processo pelo qual sistemas quânticos perdem suas propriedades quânticas devido à interação com o ambiente</li>
+              <li class="quiz-option">A separação de partículas emaranhadas</li>
+              <li class="quiz-option">A transformação de qubits em bits clássicos</li>
+              <li class="quiz-option">O colapso da função de onda durante uma medição</li>
+            </ul>
+            <div class="quiz-feedback" data-correct="A decoerência quântica é o processo pelo qual sistemas quânticos perdem suas propriedades quânticas, como superposição e emaranhamento, devido à interação incontrolável com o ambiente." data-incorrect="A decoerência quântica refere-se ao processo pelo qual sistemas quânticos perdem suas propriedades quânticas devido à interação com o ambiente, um dos principais desafios para a construção de computadores quânticos práticos."></div>
+          </div>
+          
+          <div class="quiz-question">
+            <h3>Pergunta 3: Qual é o significado do teorema de Bell para a mecânica quântica?</h3>
+            <ul class="quiz-options">
+              <li class="quiz-option">Prova que a mecânica quântica é incompleta</li>
+              <li class="quiz-option">Estabelece um limite para a precisão das medições quânticas</li>
+              <li class="quiz-option" data-correct="true">Demonstra que nenhuma teoria de variáveis ocultas locais pode reproduzir todas as previsões da mecânica quântica</li>
+              <li class="quiz-option">Prova que a interpretação de Copenhague é a única correta</li>
+            </ul>
+            <div class="quiz-feedback" data-correct="O teorema de Bell, formulado por John Bell em 1964, demonstra que nenhuma teoria de variáveis ocultas locais pode reproduzir todas as previsões da mecânica quântica, confirmando a natureza não-local da realidade quântica." data-incorrect="O teorema de Bell não prova que a mecânica quântica é incompleta, mas sim que nenhuma teoria de variáveis ocultas locais pode reproduzir todas as previsões da mecânica quântica, refutando a posição de Einstein sobre a completude da teoria."></div>
+          </div>
+          
+          <div class="quiz-question">
+            <h3>Pergunta 4: O que é um qubit topológico?</h3>
+            <ul class="quiz-options">
+              <li class="quiz-option">Um qubit que pode existir em mais de dois estados</li>
+              <li class="quiz-option">Um qubit que não pode ser emaranhado com outros qubits</li>
+              <li class="quiz-option" data-correct="true">Um qubit baseado em quasipartículas que são intrinsecamente robustas contra erros locais</li>
+              <li class="quiz-option">Um qubit que pode ser facilmente copiado, contornando o teorema da não-clonagem</li>
+            </ul>
+            <div class="quiz-feedback" data-correct="Um qubit topológico é baseado em quasipartículas com propriedades topológicas que o tornam intrinsecamente robusto contra erros locais, uma abordagem promissora para computação quântica tolerante a falhas." data-incorrect="Os qubits topológicos são uma abordagem para computação quântica que utiliza quasipartículas com propriedades topológicas, tornando-os intrinsecamente robustos contra erros locais, uma vantagem significativa para a computação quântica prática."></div>
+          </div>
+          
+          <div class="quiz-question">
+            <h3>Pergunta 5: Qual é o significado da supremacia quântica?</h3>
+            <ul class="quiz-options">
+              <li class="quiz-option">Quando computadores quânticos substituem completamente os computadores clássicos</li>
+              <li class="quiz-option" data-correct="true">Quando um computador quântico resolve um problema que é impraticável para qualquer computador clássico</li>
+              <li class="quiz-option">Quando um computador quântico atinge 100% de precisão em seus cálculos</li>
+              <li class="quiz-option">Quando um computador quântico pode simular perfeitamente qualquer sistema físico</li>
+            </ul>
+            <div class="quiz-feedback" data-correct="A supremacia quântica (ou vantagem quântica) refere-se ao ponto em que um computador quântico pode resolver um problema específico que seria impraticável para qualquer computador clássico, mesmo o mais poderoso." data-incorrect="A supremacia quântica não significa a substituição completa de computadores clássicos, mas sim o ponto em que um computador quântico resolve um problema específico que seria impraticável para qualquer computador clássico."></div>
+          </div>
+          
+          <button class="quiz-button">Verificar Respostas</button>
+          
+          <div class="quiz-results">
+            <h3>Seus Resultados</h3>
+            <p>Você acertou <span class="quiz-score">0/5</span> questões!</p>
+            <p>Continue explorando nosso site para aprender mais sobre física quântica.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Recursos Adicionais -->
+      <section class="content-section fade-in">
+        <h2>Recursos Adicionais para Aprendizado</h2>
+        <p>Se você gostou do nosso quiz e deseja aprofundar seus conhecimentos em física quântica, recomendamos os seguintes recursos:</p>
+        
+        <ul class="feature-list">
+          <li><a href="fundamentos.html">Nossa seção de Fundamentos da Física Quântica</a> para entender os conceitos básicos</li>
+          <li><a href="computacao.html">Nossa seção de Computação Quântica</a> para explorar as aplicações tecnológicas</li>
+          <li><a href="recursos.html">Recursos Educacionais</a> com livros, cursos online e vídeos recomendados</li>
+          <li><a href="glossario.html">Glossário Quântico</a> para referência rápida de termos e conceitos</li>
+        </ul>
+        
+        <div class="share-buttons">
+          <span>Compartilhe este quiz:</span>
+          <a href="#" onclick="return shareContent('twitter')" class="share-button share-twitter" aria-label="Compartilhar no Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" onclick="return shareContent('facebook')" class="share-button share-facebook" aria-label="Compartilhar no Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" onclick="return shareContent('linkedin')" class="share-button share-linkedin" aria-label="Compartilhar no LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" onclick="return shareContent('whatsapp')" class="share-button share-whatsapp" aria-label="Compartilhar no WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <!-- Rodapé -->
   <footer>
-    <p>&copy; 2025 Quantum. Todos os direitos reservados.</p>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Quantum Explorer</h3>
+          <p>Explorando a física quântica com profundidade e clareza para estudantes e entusiastas.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Navegação</h3>
+          <ul class="footer-links">
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="fundamentos.html">Fundamentos</a></li>
+            <li><a href="computacao.html">Computação Quântica</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Recursos</h3>
+          <ul class="footer-links">
+            <li><a href="glossario.html">Glossário</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="recursos.html">Material Complementar</a></li>
+            <li><a href="sitemap.html">Mapa do Site</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contato</h3>
+          <ul class="footer-links">
+            <li><a href="contato.html">Formulário de Contato</a></li>
+            <li><a href="mailto:contato@quantumexplorer.com.br">contato@quantumexplorer.com.br</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 Quantum Explorer. Todos os direitos reservados.</p>
+      </div>
+    </div>
   </footer>
+  
+  <!-- Botão de voltar ao topo -->
+  <button class="back-to-top" aria-label="Voltar ao topo">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  
+  <!-- Scripts -->
+  <script src="../js/particles.min.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 </html>
